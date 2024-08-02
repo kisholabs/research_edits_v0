@@ -121,10 +121,6 @@ To create our design matrix, $\overline{\overline{G}}$ we partitioned the GrIs i
 
 This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO, with loss functions defined as $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{1}$ and $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{2}^{2}$ respectively. We used the trade-off (L-curve) criterion to determine our optimal smoothing parameter, shown in Figure \ref{Fig:Data1c} along with its performance metrics.
 
-% \begin{figure}
-%     \includegraphics[\columnwidth]{figures/trade-off-curves.pdf}
-% \end{figure}
-
 \begin{figure}[!htb]
    \begin{minipage}{0.33\textwidth}
      \centering
@@ -149,36 +145,9 @@ This is a linear inversion task, where the effective body-forces in one grid cel
   \end{minipage}
 \end{figure}
 
-% \begin{figure}
-%     \centering
-%     \subfigure[]{\includegraphics[width=0.24\textwidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}} 
-%     \subfigure[]{\includegraphics[width=0.24\textwidth]{figures/Ridge_Trade_Off_USING.png}} 
-%     \subfigure[width=0.47\textwidth]{
-%     \begin{table}
-%       \caption{Sample table title}
-%       \label{sample-table}
-%       \centering
-%       \begin{tabular}{lll}
-%         \toprule
-%         \multicolumn{2}{c}{Part}                   \\
-%         \cmidrule(r){1-2}
-%         Name     & Description     & Size ($\mu$m) \\
-%         \midrule
-%         Dendrite & Input terminal  & $\sim$100     \\
-%         Axon     & Output terminal & $\sim$10      \\
-%         Soma     & Cell body       & up to $10^6$  \\
-%         \bottomrule
-%       \end{tabular}
-%     \end{table}
-%     } 
-%     \caption{(a) blah (b) blah (c) blah (d) blah}
-%     \label{fig:foobar}
-% \end{figure}
-
-
 \section{Results}
 
-Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.985 respectively. The model predicted plotted against the ground truth velocity field has been shown in Figure \ref{Fig:Data4}, highlighting the accuracy of the predictions. 
+Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.985 respectively. The model predicted plotted against the ground truth velocity field has been shown in Figure \ref{Fig:Data4}, highlighting the accuracy of the predictions. (talk about next experiment to verify accuracy and then talk about figure 5) (insert basal traction conversion formula) In this work, we developed an inversion algorithm for quantifying forces and magnitudes of basal tractions of the Greenland Ice Sheet. In this work, we developed an inversion algorithm for quantifying forces and magnitudes of basal tractions of the Greenland Ice Sheet. In this work, we developed an inversion algorithm for quantifying forces and magnitudes of basal tractions of the Greenland Ice Sheet. In this work, we developed an inversion algorithm for quantifying forces and magnitudes of basal tractions of the Greenland Ice Sheet. In this work, we developed an inversion algorithm for quantifying forces and magnitudes of basal tractions of the Greenland Ice Sheet.
 
 \begin{figure}[!htb]
    \begin{minipage}{0.48\textwidth}
@@ -195,9 +164,7 @@ Both the Ridge and LASSO regression models achieved a near identical fit to the 
 
 \section{Conclusion and Future Work}
 
-In this work, we developed an inversion algorithm for quantifying forces and magnitudes of basal tractions of the Greenland Ice Sheet. This is achieved via a hybrid model, with a linear regression based inversion model that integrates real-world Ice Thickness and InSAR data, and uses a physics-based model to predict basal traction forces and distributions. This work has large implications on the ability to quantify basal tractions and understand the magnitudes and distributions of the forces keeping the GrIs together, and serves as a step towards modeling ice flux in relation to friction, normal forces, and other nonlinear forces. In the future, we hope to explore the application of deep learning improve the fit of this model use this work to create models relating ice flux in relation to friction, normal forces and nonlinear forces, which would help us relate velocities with ice loss of the GrIs, helping us closely monitor rising sea levels of the GrIs and beyond.
-
-The slight errors in the predictions seem to be mostly located along the coastline, and we believe that these errors can be corrected for through a smaller grid cell size and access to higher computing power. 
+In this work, we developed an inversion algorithm for quantifying forces and magnitudes of basal tractions of the Greenland Ice Sheet. This is achieved via a hybrid model, with a linear regression based inversion model that integrates real-world Ice Thickness and InSAR data, and uses a physics-based model to predict basal traction forces and distributions. This work has large implications on the ability to quantify basal tractions and understand the magnitudes and distributions of the forces keeping the GrIs together, and serves as a step towards modeling ice flux in relation to friction, normal forces, and other nonlinear forces. In the future, we hope to explore the application of deep learning improve the fit of this model, and use this work to create models relating ice flux in relation to friction, normal forces and nonlinear forces. Relating velocities with ice loss of the GrIs, helping us closely monitor rising sea levels of the GrIs and beyond.
 
 %We are currently looking for more data spanning more time or also for the Antarctic Ice Sheet.%
 %REMEMBER TO CTRL F FOR BLANK AT THE END%
