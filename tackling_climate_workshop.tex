@@ -105,11 +105,11 @@ $$
 Our goal to find best linear combination $\overline{\overline{G}} m$ that predicts $\vec{d}$. After achieving a proper fit, the model coefficients would be able to provide valuable insight to the distributions of basal tractions, and could also be translated to view the strain rates across the GrIs.
 
 \subsubsection{G matrix}
-To create our G matrix, we partitioned Greenland into 1000 grid cells (each with size 2\degree  2*) and generated 3 basis functions (Exx - Horizontal East and West effective body forces, Eyy - Horizontal North and South effective body-forces, and Exy - Shear effecitve body-forces) for each cell. Our original experiments used 40 grid cells (each 10 x 10), and we noticed considerable performance improvements increasing the resolution of our G matrix. Depending on computational computing power available, further reducing the grid cell size is an avenue for further optimizing the fit of the BLANK linear combination.   
+To create our G matrix, we partitioned Greenland into 1000 grid cells (each with size 2\degree  2*) and generated 3 basis functions (Exx - Horizontal East and West effective body forces, Eyy - Horizontal North and South effective body-forces, and Exy - Shear effective body-forces) for each cell. Our original experiments used 40 grid cells (each 10 x 10), and we noticed considerable performance improvements increasing the resolution of our G matrix. Depending on computational computing power available, further reducing the grid cell size is an avenue for further optimizing the fit of the BLANK linear combination.   
 
 \subsubsection{Model}
 
-This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks (Lines & Trei℡, 1984). To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO. Our Loss Function is defined as [INSERT LOSS HERE], with our alpha value range defined as [alpha]. We used the trade-off (L-curve) criterion and the 10-fold generalized cross validation techniques to determine our optimal smoothing parameter. 
+This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO. Our Loss Function is defined as [INSERT LOSS HERE], with our alpha value range defined as [alpha]. We used the trade-off (L-curve) criterion and the 10-fold generalized cross validation techniques to determine our optimal smoothing parameter. 
 
 \section{Results}
 
@@ -136,7 +136,7 @@ We are currently looking for more data spanning more time or also for the Antarc
 \section*{References}
 
 \small
-\bibliography{references}
+\bibliography{\references}
 \bibliographystyle{ieee_fullname}
 
 \end{document}
