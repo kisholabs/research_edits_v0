@@ -26,7 +26,8 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 
-\title{\textit{Formatting instructions for} Tackling Climate Change with Machine Learning: workshop at NeurIPS 2022}
+\title{An Inversion Algorithm of Ice Thickness and InSAR Data for
+the State of Friction at the Base of the Greenland Ice Sheet}
 
 % The \author macro works with any number of authors. There are two commands
 % used to separate the names and addresses of multiple authors: \And and \AND.
@@ -45,16 +46,16 @@
   Pittsburgh, PA 15213 \\
   \texttt{hippo@cs.cranberry-lemon.edu} \\
   % examples of more authors
-  % \And
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-  % \AND
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
+   \And
+   Coauthor \\
+   Affiliation \\
+   Address \\
+   \texttt{email} \\
+   \AND
+   Coauthor \\
+   Affiliation \\
+   Address \\
+   \texttt{email} \\
   % \And
   % Coauthor \\
   % Affiliation \\
@@ -93,16 +94,14 @@ By inverting these datasets through a novel algorithm, we quantify forces and di
 
 \section{Previous Work}
 
-Glaciologists have traditionally classified ice motion as a viscous flow (Morland Steady Flow citation). This motivated prior researchers at Stony Brook university to use the elevations of the GrIs derived from the topographical data set mentioned above (ETOPO1) to generate a gravitational potential energy (GPE) map across the GrIs. The primary focus of the research was establishing a connection between GPE calculations and the rate of viscous ice flow. As a result, (BLANK_ask_Jey) assumed that the ice was moving along a friction-less base. However, when the GPE velocity calculations were made, they vastly overestimated the speeds of the ice velocities compared to the inSAR derived ground truth velocities. The results of this work reinforce the idea that the basal traction's have a major influence over ice motion and ice velocity rates (INSERT CITATION). 
+Glaciologists have traditionally classified ice motion as a viscous flow (Morland Steady Flow citation). This motivated prior researchers at Stony Brook university to use the elevations of the GrIs derived from the topographical data set mentioned above (ETOPO1) to generate a gravitational potential energy (GPE) map across the GrIs. The primary focus of the research was establishing a connection between GPE calculations and the rate of viscous ice flow. As a result, (BLANK-ask-Jey) assumed that the ice was moving along a friction-less base. However, when the GPE velocity calculations were made, they vastly overestimated the speeds of the ice velocities compared to the inSAR derived ground truth velocities. The results of this work reinforce the idea that the basal traction's have a major influence over ice motion and ice velocity rates (INSERT CITATION). 
 
 Our work is motivated by these results, and acts as an extension building on this prior research to establish a relationship between the basal friction/traction and the inSAR dervied horizontal velocity rates of the GrIs. 
+
 In recent years, advances in computing ML and AI based approaches have gained interest and traction among gaciologists for their ability to produce accurate climate models across a vast amount of data.
+
 Our approach uses a hybrid model: our ground truth velocity data is used to train a linear regression model to predict horizontal velocities and the output of this model is fed into a physical model to estimate strain rates that capture relationships between the physical variables and the actual ice motion.
 
-
-
-
-Prior work has been done utilizing topographical models to generate gravitational potential energy (GPE) maps of the GrIS. 
 
 Since the end of 19th century, seismic researchers have tried to identify predictors of earthquakes such as foreshocks, changes in groundwater, or unusual animal behavior without much success. Physics-based models have also been largely unsuccessful as the relationships between variables are complex and highly non-linear. In recent years, ML and AI based approaches have started gaining interest. Authors in [9] provides a comprehensive survey of 84 research papers related to earthquake prediction using AI-based techniques. In recent years, the monitoring data of the Earth’s surface displacement obtained by Global Positioning System (GPS) have been published in real time for a number of seismically active regions. These data are used to study block models of the Earth’s crust and in earthquake prediction studies using physical [10-13] and AI-based models [14-15]. Instead of using the GPS data directly, our approach uses a hybrid model. We first use a physical model to convert GPS measurements into a time series for horizontal strain which is then used to train a deep learning model to capture relationships between the physical variables and the actual seismic events. 
 
