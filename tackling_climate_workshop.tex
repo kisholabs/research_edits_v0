@@ -121,7 +121,7 @@ To create our design matrix, $\overline{\overline{G}}$ we partitioned Greenland 
 This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO. Our Loss Function is defined as [INSERT LOSS HERE], with our alpha value range defined as [alpha]. We used the trade-off (L-curve) criterion and the 10-fold generalized cross validation techniques to determine our optimal smoothing parameter. 
 
 \begin{figure}
-    \includegraphics[width=0.8 * \columnwidth]{figures/trade-off-curves.pdf}
+    \includegraphics[\columnwidth]{figures/trade-off-curves.pdf}
 \end{figure}
 
 \begin{table}
@@ -146,6 +146,19 @@ This is a linear inversion task, where the effective body-forces in one grid cel
 Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.987 respectively. The model predicted plotted against the ground truth velocity field has been shown in Figure BLANK, highlighting the accuracy of the predictions. The slight errors in the predictions seem to be mostly located along the coastline, and we believe that these errors can be corrected for through a smaller grid cell size and access to higher computing power. 
 
 
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{/figures/greenland_inversion_prediction_Ridge_0.15199.pdf}
+     \caption{Interpolation for Data 1}\label{Fig:Data1}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{example-image-b}
+     \caption{Interpolation for Data 2}\label{Fig:Data2}
+   \end{minipage}
+\end{figure}
 
 \section{Conclusion and Future Work}
 
