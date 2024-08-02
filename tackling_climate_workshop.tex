@@ -96,11 +96,15 @@ Our work is motivated by these results, and acts as an extension building on thi
 \section{Methods}
 
 \subsubsection{Dataset}
-Our data comes from two sources: ETOPO1 and Sentinel-1 radar satellite imagery. ETOPO1 provides topographical ice and bedrock elevation measurements which are used to calculate the thickness of the ice, and then generate gravitational potential energies (GPE) across the entire ice sheet \cite{information ETPO1}. Roughly 1800 Sentinel 1 scenes were used and inSAR feature tracking techniques were applied to derive surface horizontal velocity information of the ice \cite{nagler SENTINEL 1}. Both global-level datasets were parsed using the geopandas library to focus on the GrIs from 2016-2017. This data is the foundation for our geophysical equation of our problem:
+Our data comes from two sources: ETOPO1 and Sentinel-1 radar satellite imagery. ETOPO1 provides topographical ice and bedrock elevation measurements which are used to calculate the thickness of the ice, and then generate gravitational potential energies (GPE) across the entire ice sheet \cite{information ETPO1}. Roughly 1800 Sentinel 1 scenes were used and inSAR feature tracking techniques were applied to derive surface horizontal velocity information of the ice \cite{nagler SENTINEL 1}. Both global-level datasets were parsed using the geopandas library to focus on the GrIs from 2016-2017. 
+
+This data is the foundation for our geophysical equation of our problem:
 
 $$
 \vec{d}=\overline{\overline{G}} m=v_{\text {InSAR}}-v_{GPE}
 $$
+
+$\vec{d}$ is our velocity field representing the difference between the inSAR velocities and the GPE velocities. Our G matrix $\overline{\overline{G}}$ represents our basis functions 
 
 Our goal to find best linear combination $\overline{\overline{G}} m$ that predicts $\vec{d}$. After achieving a proper fit, the model coefficients would be able to provide valuable insight to the distributions of basal tractions, and could also be translated to view the strain rates across the GrIs.
 
