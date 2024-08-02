@@ -119,7 +119,7 @@ To create our design matrix, $\overline{\overline{G}}$ we partitioned the GrIs i
 
 \subsubsection{Model}
 
-This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO, with loss functions defined as BLANK and BLANK respectively. We used the trade-off (L-curve) criterion to determine our optimal smoothing parameter, shown in Figure \ref{Fig:Data1c} along with its performance metrics.
+This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO, with loss functions defined as $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{1}$ and $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{2}^{2}$ respectively. We used the trade-off (L-curve) criterion to determine our optimal smoothing parameter, shown in Figure \ref{Fig:Data1c} along with its performance metrics.
 
 % \begin{figure}
 %     \includegraphics[\columnwidth]{figures/trade-off-curves.pdf}
