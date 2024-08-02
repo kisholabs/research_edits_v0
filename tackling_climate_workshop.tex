@@ -115,7 +115,10 @@ $$
 
 $\vec{d}$ is our velocity field representing the difference between the InSAR velocities and the GPE velocities. $\overline{\overline{G}}$ is our basis functions representing the vircous thing-sheet responses casued by body-forces on the ice sheet. $m$ is our linear inversion model. Our goal to find best linear combination $\overline{\overline{G}} m$ that predicts $\vec{d}$. After achieving a proper fit, the model coefficients would be able to provide valuable insight to the distributions of basal tractions, and could also be translated to view the strain rates across the GrIs.
 
-To create our design matrix, $\overline{\overline{G}}$ we partitioned Greenland into 1000 grid cells (each with size 2° x 2°) and generated 3 basis functions ($\varepsilon_{xx}$ - Horizontal East and West effective body forces, $\varepsilon_{yy}$ - Horizontal North and South effective body-forces, and $\varepsilon_{xy}$ - Shear effective body-forces) for each cell. Our original experiments used 40 grid cells (each 10° x 10°), and we noticed considerable performance improvements increasing the resolution of our G matrix. Depending on computational computing power available, further reducing the grid cell size is an avenue for further optimizing the fit of the BLANK linear combination.   
+To create our design matrix, $\overline{\overline{G}}$ we partitioned Greenland into 1000 grid cells (each with size 2° x 2°) and generated 3 basis functions ($\varepsilon_{xx}$ - Horizontal East and West effective body forces, $\varepsilon_{yy}$ - Horizontal North and South effective body-forces, and $\varepsilon_{xy}$ - Shear effective body-forces) for each cell. Depending on computational computing power available, further reducing the grid cell size is an avenue for further optimizing the fit of the  $\overline{\overline{G}} m$ linear combination.   
+
+%Our original experiments used 40 grid cells (each 10° x 10°), and we noticed considerable performance improvements increasing the resolution of our G matrix.%
+
 
 \subsubsection{Model}
 
@@ -126,26 +129,19 @@ This is a linear inversion task, where the effective body-forces in one grid cel
 % \end{figure}
 
 \begin{figure}[!htb]
-   \begin{minipage}{0.48\textwidth}
+   \begin{minipage}{0.33\textwidth}
      \centering
-     \includegraphics[width=.7\linewidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
+     \includegraphics[width=.8\linewidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
      \caption{Interpolation for Data 1}\label{Fig:Data1}
    \end{minipage}\hfill
-   \begin{minipage}{0.48\textwidth}
+   \begin{minipage}{0.33\textwidth}
      \centering
-     \includegraphics[width=.7\linewidth]{figures/Ridge_Trade_Off_USING.png}
+     \includegraphics[width=.8\linewidth]{figures/Ridge_Trade_Off_USING.png}
      \caption{Interpolation for Data 2}\label{Fig:Data2}
    \end{minipage}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \subfigure[]{\includegraphics[width=0.24\textwidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}} 
-    \subfigure[]{\includegraphics[width=0.24\textwidth]{figures/Ridge_Trade_Off_USING.png}} 
-    \subfigure[width=0.47\textwidth]{
-    \begin{table}
-      \caption{Sample table title}
-      \label{sample-table}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \begin{table}
       \centering
       \begin{tabular}{lll}
         \toprule
@@ -159,12 +155,35 @@ This is a linear inversion task, where the effective body-forces in one grid cel
         \bottomrule
       \end{tabular}
     \end{table}
-    } 
-    \caption{(a) blah (b) blah (c) blah (d) blah}
-    \label{fig:foobar}
+     \caption{Interpolation for Data 2}\label{Fig:Data2}
+   \end{minipage}
 \end{figure}
 
-
+% \begin{figure}
+%     \centering
+%     \subfigure[]{\includegraphics[width=0.24\textwidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}} 
+%     \subfigure[]{\includegraphics[width=0.24\textwidth]{figures/Ridge_Trade_Off_USING.png}} 
+%     \subfigure[width=0.47\textwidth]{
+%     \begin{table}
+%       \caption{Sample table title}
+%       \label{sample-table}
+%       \centering
+%       \begin{tabular}{lll}
+%         \toprule
+%         \multicolumn{2}{c}{Part}                   \\
+%         \cmidrule(r){1-2}
+%         Name     & Description     & Size ($\mu$m) \\
+%         \midrule
+%         Dendrite & Input terminal  & $\sim$100     \\
+%         Axon     & Output terminal & $\sim$10      \\
+%         Soma     & Cell body       & up to $10^6$  \\
+%         \bottomrule
+%       \end{tabular}
+%     \end{table}
+%     } 
+%     \caption{(a) blah (b) blah (c) blah (d) blah}
+%     \label{fig:foobar}
+% \end{figure}
 
 
 \section{Results}
