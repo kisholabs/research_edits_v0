@@ -29,7 +29,7 @@
 \usepackage{graphicx}
 \usepackage{gensymb}
 \usepackage{subfigure}
-\usepackage{subcaption}
+% \usepackage{subcaption}
 
 
 \title{An Inversion Algorithm of Ice Thickness and InSAR Data for
@@ -123,14 +123,14 @@ This is a linear inversion task, where the effective body-forces in one grid cel
    \begin{minipage}{0.33\textwidth}
      \centering
      \includegraphics[width=.95\linewidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
-    %  \caption{Ridge Trade Off Curve}\label{Fig:Data1a}
-     \subfloat[1a]
+     \caption{Ridge Trade Off Curve}\label{Fig:Data1a}
+    %  \subfloat[1a]
    \end{minipage}\hfill
    \begin{minipage}{0.33\textwidth}
      \centering
      \includegraphics[width=.95\linewidth]{figures/Ridge_Trade_Off_USING.png}
-     \subfloat[1b]
-    %  \caption{LASSO Trade Off Curve}\label{Fig:Data1b}
+    %  \subfloat[1b]
+     \caption{LASSO Trade Off Curve}\label{Fig:Data1b}
    \end{minipage}
    \begin{minipage}{0.33\textwidth}
     \centering
@@ -142,14 +142,14 @@ This is a linear inversion task, where the effective body-forces in one grid cel
         RMSE & \textbf{6.3651} & 27.6796 \\
         MAE & \textbf{4.3038} & 24.3230 \\
     \end{tabular}
-    \subfloat[1c]
-    % \caption{Smoothing Params + Performance Metrics}\label{Fig:Data1c}
+    % \subfloat[1c]
+    \caption{Smoothing Params + Performance Metrics}\label{Fig:Data1c}
   \end{minipage}
 \end{figure}
 
 \section{Results}
 
-Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.985 respectively. The Ridge model predictions (green vectors) have been plotted against the ground truth velocity field (red vectors) in Figure \ref{Fig:Data4}, highlighting the accuracy of the predictions. Given the unusually high $R^{2}$ score, we are planning on running this model on larger datasets to verify this accuracy. We can now take the model's coefficients and convert our strain rate basis functions from $\overline{\overline{G}}$ to basal tractions through the method described in  BLANK \cite{finzel_surface_2015}. The Ridge basal traction predictions are plotted in \ref{Fig:Data5}, and indicate that the basal tractions responsible for holding the GrIs together mostly lie on the coastline of the ice sheet.
+Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.985 respectively. The Ridge model predictions (green vectors) have been plotted against the ground truth velocity field (red vectors) in Figure \ref{Fig:Data4}, highlighting the accuracy of the predictions. Given the unusually high $R^{2}$ score, we are planning on running this model on larger datasets to verify this accuracy. We can now take the model's coefficients and convert our strain rate basis functions from $\overline{\overline{G}}$ to basal tractions through the method described in  \cite{finzel_surface_2015}. The Ridge basal traction predictions are plotted in \ref{Fig:Data5}, and indicate that the basal tractions responsible for holding the GrIs together mostly lie on the coastline of the ice sheet.
 
 %6 lines long
 
