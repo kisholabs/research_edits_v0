@@ -84,9 +84,20 @@ Recent advances in satellite remote sensing systems have produced high-resolutio
 
 (needs fixing)
 
-We focus on the ETOPO1 Global Relief Model published by the NOAA that provides ice and bedrock topographical surface models for the GrIs. We also 
+We focus on two datasets in this work: 
 
-We also use a dataset produced from ESA Sentinel 1 inSAR satellite imagery acquired from 2016 to 2017 composed of ~1800 scenes. Through feature tracking techniques, we are able to derive a surface velocity map across the GrIs. 
+\begin{enumerate} 
+
+ETOPO1 Global Relief Model, published by the NOAA, that provides ice and bedrock topographical surface models for the GrIs.
+
+Radar Satellite Imagery We also use a dataset produced from ESA Sentinel 1 inSAR satellite imagery acquired from 2016 to 2017 composed of ~1800 scenes. Through feature tracking techniques, we are able to derive a surface velocity map across the GrIs. 
+
+
+\end{enumerate}
+
+
+
+
 
 In this study, we focus on BLANK and BLANK in order to investigate the state of friction at the base of the GrIS. 
 
@@ -104,13 +115,19 @@ Our approach uses a hybrid model: our ground truth velocity data is used to trai
 
 \section{Methods}
 
-There are three tracks for submissions: \textbf{Papers, Proposals, and Tutorial}s, each described in detail below.  Submissions are limited to \textbf{4 pages for the Papers track}, and \textbf{3 pages for the Proposals track}. Tutorials do not have a page limit. References do not count towards this total. Supplementary appendices are allowed but will be read at the discretion of the reviewers. All submissions must explain why the proposed work has (or could have) positive impacts regarding climate change.
-
 \subsubsection{Dataset}
+Our dataset is sourced from two sources: ETOPO1 for topographical ice sheet measurements and Sentinel-1 InSAR data for velocity fields. Both global-level datasets were parsed using the geopandas library such that all points were on the Greenland Ice Sheet. The topographical measurements of Greenland’s ice and bedrock elevations are used to calculate the thickness of the ice, which is then used to generate gravitational potential energies (GPE) across the entire ice sheet. This data feeds into our geophysical equation:
 
+(insert equation here d=G M + vGPE equation)
 
+Our Goal to find best linear combination (BLANK) that predicts BLANK After achieving a proper fit, the model coefficients would be able to provide valuable insight to the distributions of basal tractions across the Greenland ice sheet. 
+
+\subsubsection{G matrix}
+To create our G matrix, we partitioned Greenland into 1000 grid cells (each with size 2* x 2*) and generated 3 basis functions (Exx - Horizontal East and West effective body forces, Eyy - Horizontal North and South effective body-forces, and Exy - Shear effecitve body-forces) for each cell. Our original experiments used 40 grid cells (each 10 x 10), and we noticed considerable performance improvements increasing the resolution of our G matrix. Depending on computational computing power available, further reducing the grid cell size is an avenue for further optimizing the fit of the BLANK linear combination.   
 
 \subsubsection{Model}
+
+This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks (Lines & Trei℡, 1984). To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO. Our Loss Function is defined as [INSERT LOSS HERE], with our alpha value range defined as [alpha]. We used the trade-off (L-curve) criterion and the 10-fold generalized cross validation techniques to determine our optimal smoothing parameter. 
 
 \section{Results}
 
