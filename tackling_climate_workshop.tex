@@ -94,7 +94,7 @@ Our work is motivated by these results, and acts as an extension building on thi
 \section{Methods}
 
 \subsubsection{Dataset}
-Our data comes from two sources: ETOPO1 and Sentinel-1 radar satellite imagery. ETOPO1 provides topographical ice and bedrock elevation measurements which are used to calculate the thickness of the ice, and then generate gravitational potential energies (GPE) across the entire ice sheet \cite{information ETPO1}. Roughly 1800 Sentinel 1 scenes were used and inSAR feature tracking techniques were applied to derive surface horizontal velocity information of the ice \cite{nagler SENTINEL 1}. Both global-level datasets were parsed using the geopandas library to focus on the GrIs from 2016-2017. 
+Our data comes from two sources: ETOPO1 and Sentinel-1 radar satellite imagery. ETOPO1 provides topographical ice and bedrock elevation measurements which are used to calculate the thickness of the ice, and then generate gravitational potential energies (GPE) across the entire ice sheet \cite{information_ncei_etopo1_nodate}. Roughly 1800 Sentinel 1 scenes were used and inSAR feature tracking techniques were applied to derive surface horizontal velocity information of the ice \cite{nagler_sentinel-1_2015}. Both global-level datasets were parsed using the geopandas library to focus on the GrIs from 2016-2017. 
 
 \subsubsection{Equation}
 This data is the foundation for our geophysical equation:
@@ -113,9 +113,32 @@ To create our G matrix, we partitioned Greenland into 1000 grid cells (each with
 
 This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO. Our Loss Function is defined as [INSERT LOSS HERE], with our alpha value range defined as [alpha]. We used the trade-off (L-curve) criterion and the 10-fold generalized cross validation techniques to determine our optimal smoothing parameter. 
 
+\begin{figure}
+  \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+  \caption{Sample figure caption.}
+\end{figure}
+
+\begin{table}
+  \caption{Sample table title}
+  \label{sample-table}
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    \multicolumn{2}{c}{Part}                   \\
+    \cmidrule(r){1-2}
+    Name     & Description     & Size ($\mu$m) \\
+    \midrule
+    Dendrite & Input terminal  & $\sim$100     \\
+    Axon     & Output terminal & $\sim$10      \\
+    Soma     & Cell body       & up to $10^6$  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \section{Results}
 
 Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.987 respectively. The model predicted plotted against the ground truth velocity field has been shown in Figure BLANK, highlighting the accuracy of the predictions. The slight errors in the predictions seem to be mostly located along the coastline, and we believe that these errors can be corrected for through a smaller grid cell size and access to higher computing power. 
+
 
 
 \section{Conclusion and Future Work}
