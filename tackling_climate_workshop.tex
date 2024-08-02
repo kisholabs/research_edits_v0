@@ -45,21 +45,17 @@ the State of Friction at the Base of the Greenland Ice Sheet}
 
 \author{%
   Aryan Jain\\
-  Department of Computer Science\\
-  Cranberry-Lemon University\\
-  Pittsburgh, PA 15213 \\
-  \texttt{hippo@cs.cranberry-lemon.edu} \\
+  Amador Valley High School\\
+  \texttt{aryanjn09@gmail.com} \\
   % examples of more authors
-   \And
-   Coauthor \\
-   Affiliation \\
-   Address \\
-   \texttt{email} \\
-   \AND
-   Coauthor \\
-   Affiliation \\
-   Address \\
-   \texttt{email} \\
+    \And
+    Jeonghyeop Kim \\
+    Stony Brook University \\
+    \texttt{jeonghyeop.kim@stonybrook.edu} \\
+    \AND
+    William Holt \\
+    Stony Brook University \\
+    \texttt{william.holt@stonybrook.edu} \\
   % \And
   % Coauthor \\
   % Affiliation \\
@@ -122,7 +118,7 @@ $\vec{d}$ is our velocity field representing the difference between the InSAR an
 This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use the least squares regression method, shown to perform well in inversion tasks, and also employed Ridge (Tikhonov) and LASSO regularization with loss functions defined as $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{1}$ and $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{2}^{2}$ respectively \cite{lines_review_1984, marquardt_ridge_1975, tibshirani_regression_2011}. Trade-off (L-curve) criterion determined our optimal smoothing parameter, shown in Figures \ref{Fig:Data1a} and  \ref{Fig:Data1b} with Figure \ref{Fig:Data1c} displaying performance metrics.
 
 \begin{figure}[!htb]
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.34\textwidth}
      \centering
      \includegraphics[width=.925\linewidth]{figures/Ridge_Trade_Off_USING.png}
      \caption{Ridge trade-off curve}\label{Fig:Data1a}
@@ -134,7 +130,7 @@ This is a linear inversion task, where the effective body-forces in one grid cel
     %  \subfloat[1b]
      \caption{LASSO trade-off curve}\label{Fig:Data1b}
    \end{minipage}
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.34\textwidth}
     \centering
      \begin{tabular}{l|l|l}
         \textbf{Metric} & \textbf{Ridge} & \textbf{LASSO} \\
