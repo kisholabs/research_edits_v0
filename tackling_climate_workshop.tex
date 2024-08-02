@@ -87,7 +87,7 @@ Recent advances in satellite remote sensing systems have produced high-resolutio
 
 \section{Previous Work}
 
-Glaciologists have traditionally classified ice motion as a viscous flow \cite{morland_steady_1980}. This motivated prior researchers at Stony Brook university to use the bedrock and ice elevations of the GrIs derived from ETOPO1 topographical data set to generate a gravitational potential energy (GPE) map across the GrIs. The primary focus of the research was establishing a connection between GPE calculations and the rate of viscous ice flow, and thus the researchers assumed that the ice was moving along a frictionless base. However, the GPE velocity calculations vastly overestimated the speeds of the ice velocities by a thousand-fold compared to the ground truth data from InSAR satellite imagery. Thus, prior work has reinforced the notion that the basal traction's between the ice and the bedrock have a major influence over ice motion and ice velocity rates \cite{maier_basal_2021}. However, these forces have been poorly characterized as they remain buried beneath thousands of feet of ice \cite{maier_basal_2021}.
+Glaciologists have traditionally classified ice motion as a viscous flow \cite{morland_steady_1980}. This motivated prior researchers at Stony Brook university to use the bedrock and ice elevations of the GrIs derived from ETOPO1 topographical data set to map a vertically integrated gravitational potential energy (GPE) of the GrIs. The primary focus of the research was establishing a connection between GPE calculations and the rate of viscous ice flow, and thus the researchers assumed that the ice was moving along a frictionless base. However, the GPE velocity calculations vastly overestimated the speeds of the ice velocities by a thousand-fold compared to the ground truth data from InSAR satellite imagery. Thus, prior work has reinforced the notion that the basal traction's between the ice and the bedrock have a major influence over ice motion and ice velocity rates \cite{maier_basal_2021}. However, these forces have been poorly characterized as they remain buried beneath thousands of feet of ice \cite{maier_basal_2021}.
 
 Our work is motivated by these results, and acts as an extension building on this prior research to capture a relationship between the InSAR derived horizontal velocity rates and the basal tractions of the GrIs in order to gain insight as to the magnitudes and distributions of the forces holding the ice back from flowing into the ocean. Our approach uses a hybrid model: our ground truth velocity data is used to train a linear regression model, and these model coefficients can be fed into a geophysical model to estimate forces of basal tractions that capture relationships between the ice motion and physical variables.
 
@@ -96,9 +96,9 @@ Our work is motivated by these results, and acts as an extension building on thi
 \subsubsection{Dataset}
 Our data comes from two sources: ETOPO1 and Sentinel-1 radar satellite imagery. ETOPO1 provides topographical ice and bedrock elevation measurements which are used to calculate the thickness of the ice, and then generate gravitational potential energies (GPE) across the entire ice sheet \cite{information_ncei_etopo1_nodate}. Roughly 1800 Sentinel 1 scenes were used and InSAR feature tracking techniques were applied to derive surface horizontal velocity information of the ice \cite{nagler_sentinel-1_2015}. Both global-level datasets were parsed using the geopandas library to focus on the GrIs from 2016-2017. 
 
-Our data vector is also a model too, as it involves the velocity field of the InSAR associated with our GPE model, which predicts very high as the GPE values are four orders higher than the InSAR values.
+%Our data vector is also a model too, as it involves the velocity field of the InSAR associated with our GPE model, which predicts very high as the GPE values are four orders higher than the InSAR values.%
 
-Our d vector is almost a negative GPE value, which is why our linear regression coefficents are so high.
+%Our d vector is almost a negative GPE value, which is why our linear regression coefficents are so high.%
 
 \subsubsection{Inversion Set Up}
 
@@ -120,9 +120,9 @@ To create our design matrix, $\overline{\overline{G}}$ we partitioned Greenland 
 
 This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO. Our Loss Function is defined as [INSERT LOSS HERE], with our alpha value range defined as [alpha]. We used the trade-off (L-curve) criterion and the 10-fold generalized cross validation techniques to determine our optimal smoothing parameter. 
 
-\begin{figure}
-    \includegraphics[\columnwidth]{figures/trade-off-curves.pdf}
-\end{figure}
+% \begin{figure}
+%     \includegraphics[\columnwidth]{figures/trade-off-curves.pdf}
+% \end{figure}
 
 \begin{table}
   \caption{Sample table title}
@@ -155,7 +155,7 @@ Both the Ridge and LASSO regression models achieved a near identical fit to the 
    \end{minipage}\hfill
    \begin{minipage}{0.48\textwidth}
      \centering
-     \includegraphics[width=.7\linewidth]{example-image-b}
+     \includegraphics[width=.7\linewidth]{LASSO_inversion_REAL.pdf}
      \caption{Interpolation for Data 2}\label{Fig:Data2}
    \end{minipage}
 \end{figure}
