@@ -94,6 +94,8 @@ Recent advances in satellite remote sensing systems have produced high-resolutio
 
 \section{Previous Work}
 
+Prior researchers at Stony Brook University set out to uncover a relationship between gravitational potential energy (GPE) and the velocity of viscous ice flow of the GrIs. They used bedrock and ice elevations of the GrIS, derived from topographical data provided by the NOAA's ETOPO1 dataset, to map a vertically integrated gravitational potential energy (GPE) of the GrIS and associated ice velocity rates.
+
 Glaciologists have traditionally classified ice motion as a viscous flow \cite{morland_steady_1980}. This motivated prior researchers at Stony Brook University to use bedrock and ice elevations of the GrIS, derived from topographical data provided by the NOAA's ETOPO1 dataset, to map a vertically integrated gravitational potential energy (GPE) of the GrIS \cite{information_ncei_etopo1_nodate}. The primary focus of the research was capturing a relationship between GPE and the velocity of viscous ice flow, and thus the researchers assumed that the ice was moving along a frictionless base. However, the GPE velocity calculations vastly overestimated the ground truth InSAR ice velocities. This difference reinforces the notion that the basal tractions between the ice and the bedrock have a major influence over ice motion and ice velocity \cite{maier_basal_2021}. However, these forces have been poorly characterized as they remain buried beneath thousands of meters of ice \cite{maier_basal_2021}. Our work extends prior research to bridge the discrepancies between the GPE and InSAR ice velocities caused by the basal tractions, providing us a deeper understanding of the dynamics of the forces holding the GrIS back from flowing into the ocean. By employing machine learning and regression to perform an inversion, we are able to use InSAR and GPE velocity data to infer basal tractions that could not have been directly observed. Our novel approach uses a hybrid model: our velocity data is used to train a linear regression model, and these model coefficients can be fed into a geophysical algorithm to estimate distributions of basal traction forces that capture relationships between the ice motion and physical variables. To our knowledge, this is the first AI-driven work separating GPE and basal traction forces to understand ice sheet dynamics.
 
 % After achieving a proper fit, the model coefficients would be able to provide valuable insight to the distributions of basal tractions, and could also be translated to view the strain rates across the GrIs.%
@@ -153,7 +155,7 @@ This is a linear inversion task, where the effective body-forces in one grid cel
 
 \section{Results}
 
-Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.985 respectively. The Ridge model predictions (green vectors) have been plotted against the ground truth velocity field (red vectors) in Figure \ref{Fig:Data4}, highlighting the accuracy of the predictions. Given the unusually high $R^{2}$ score, we are planning on testing this model on larger datasets to verify this accuracy. We can now take the model's coefficients and convert our strain rate basis functions from $\overline{\overline{G}}$ to basal tractions through the geophysical algorithm described in Finzel et al. \cite{finzel_surface_2015}. The Ridge basal traction predictions are plotted in Figure \ref{Fig:Data5}, and indicate that the largest basal tractions responsible for holding the GrIS together lie on the coastline of the ice sheet.
+Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.985 respectively. The Ridge model predictions (green vectors) have been plotted against the ground truth velocity field (red vectors) in Figure \ref{Fig:Data4}, highlighting the model's accuracy. Given the unusually high $R^{2}$ score, we are planning on testing this model on larger datasets to verify model performance. We can now take the model's coefficients and convert our strain rate basis functions from $\overline{\overline{G}}$ to basal tractions through the geophysical algorithm described in Finzel et al. \cite{finzel_surface_2015}. The Ridge basal traction predictions are plotted in Figure \ref{Fig:Data5}, and indicate that the largest basal tractions responsible for holding the GrIS together lie on the coastline of the ice sheet.
 
 %6 lines long
 
@@ -166,7 +168,7 @@ Both the Ridge and LASSO regression models achieved a near identical fit to the 
    \begin{minipage}{0.48\textwidth}
      \centering
      \includegraphics[width=.7\linewidth]{figures/greenland_traction_Ridge_0.15199.pdf}
-     \caption{Ridge Basal Traction Predictions}\label{Fig:Data5}
+     \caption{Ridge Model Basal Traction Predictions}\label{Fig:Data5}
    \end{minipage}
 \end{figure}
 
