@@ -82,15 +82,15 @@ With the advent of climate change and global warming, ice sheets worldwide have 
 
 Recent advances in satellite remote sensing systems have produced high-resolution measurements and models of the GrIS, making them an ideal tool for studying motion across large ice sheets. Synthetic Aperture Radar (SAR) satellites employ backscattered radar waves to produce precise topographical and elevation maps. Two-pass Interferometric Synthetic Aperture Radar (inSAR) satellites use radar observations from multiple trips over an area of interest to determine surface motion. Over the past decade, InSAR technologies have yielded several large-scale ice velocity maps of the GrIS and Antarctic with highly accurate ice dynamics data. 
 
-We focus on two datasets in this work: First is the ETOPO1 Global Relief Model, published by the NOAA, that provides ice and bedrock topographical surface models for the GrIs. Second is the Greenland Ice Sheet ECV project, published by the E.S.A, that utilized ~1800 scences of Sentinel 1 SAR imagery and inSAR feature tracking techniques to produce ice velocity measurements. We parsed both datasets to focus on data from 2016-2017. By inverting these datasets through a novel algorithm, we quantify forces and distributions of basal tractions, and horizontal strain rates that are holding the GrIs back from flowing into the ocean. Initial results show significant correlations between inSAR derived strain patterns and flow rates around the coastline of the ice sheet. (revisit)
+We focus on two datasets in this work: First is the ETOPO1 Global Relief Model, published by the NOAA, that provides ice and bedrock topographical surface models for the GrIs. Second is the Greenland Ice Sheet ECV project, published by the E.S.A, that provides ice velocity measurements. By inverting these datasets through a novel algorithm, we quantify forces and distributions of basal tractions, and horizontal strain rates that are holding the GrIs back from flowing into the ocean. Initial results show significant correlations between inSAR derived strain patterns and flow rates around the coastline of the ice sheet. (revisit)
 
 \section{Previous Work}
 
 Glaciologists have traditionally classified ice motion as a viscous flow (Morland Steady Flow citation). This motivated prior researchers at Stony Brook university to use the elevations of the GrIs derived from the topographical data set mentioned above (ETOPO1) to generate a gravitational potential energy (GPE) map across the GrIs. The primary focus of the research was establishing a connection between GPE calculations and the rate of viscous ice flow. As a result, (BLANK-ask-Jey) assumed that the ice was moving along a friction-less base. However, when the GPE velocity calculations were made, they vastly overestimated the speeds of the ice velocities compared to the inSAR derived ground truth velocities. The results of this work reinforce the idea that the basal traction's have a major influence over ice motion and ice velocity rates (INSERT CITATION). 
 
-Our work is motivated by these results, and acts as an extension building on this prior research to establish a relationship between the basal friction/traction and the inSAR dervied horizontal velocity rates of the GrIs. 
+Our work is motivated by these results, and acts as an extension building on this prior research to establish a relationship between the basal friction/traction and the inSAR dervied horizontal velocity rates of the GrIs.
 
-In recent years, advances in computing ML and AI based approaches have gained interest and traction among gaciologists for their ability to produce accurate climate models across a vast amount of data.
+In recent years, advances in computing ML and AI based approaches have gained interest and traction among glaciologists for their ability to produce accurate climate models across a vast amount of data.
 
 Our approach uses a hybrid model: our ground truth velocity data is used to train a linear regression model to predict horizontal velocities and the output of this model is fed into a physical model to estimate strain rates that capture relationships between the physical variables and the actual ice motion.
 
@@ -98,6 +98,11 @@ Our approach uses a hybrid model: our ground truth velocity data is used to trai
 
 \subsubsection{Dataset}
 Our dataset is sourced from two sources: ETOPO1 for topographical ice sheet measurements and Sentinel-1 InSAR data for velocity fields. Both global-level datasets were parsed using the geopandas library such that all points were on the Greenland Ice Sheet. The topographical measurements of Greenland’s ice and bedrock elevations are used to calculate the thickness of the ice, which is then used to generate gravitational potential energies (GPE) across the entire ice sheet. This data feeds into our geophysical equation:
+
+that utilized ~1800 scences of Sentinel 1 SAR imagery and inSAR feature tracking techniques to produce
+
+We parsed both datasets to focus on data from 2016-2017. 
+
 
 (insert equation here d=G M + vGPE equation)
 
