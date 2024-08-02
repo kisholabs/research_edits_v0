@@ -114,7 +114,17 @@ There are three tracks for submissions: \textbf{Papers, Proposals, and Tutorial}
 
 \section{Results}
 
+\subsubsection{Model Fit}
+
+Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving R$^$2 values of 0.999 and 0.987 respectively. The model predicted plotted against the ground truth velocity field has been shown in Figure BLANK, highlighting the accuracy of the predictions. The slight errors in the predictions seem to be mostly located along the coastline, and we believe that these errors can be corrected for through a smaller grid cell size and access to higher computing power. 
+
+
 \section{Conclusion and Future Work}
+
+This work has large implications on the ability to individually separate basal traction from GPE. It also serves as a step towards modeling ice flux in relation to friction, normal forces, and other nonlinear forces. For example, to quantify the changes in ice flux, we will run multiple inversions and define the velocity field near the edge of Greenland, and we purposely decrease the velocity magnitude by 50\% and that reduced velocity becomes the new data uploaded into the inversion model to get the new basal tractions. We would do a grid search to find a proper velocity field percentage that results in the basal traction reduction.
+
+We are currently looking for more data spanning more time or also for the Antarctic Ice Sheet.
+
 
 \section*{References}
 
