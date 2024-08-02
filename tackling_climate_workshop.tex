@@ -96,7 +96,15 @@ Our work is motivated by these results, and acts as an extension building on thi
 \subsubsection{Dataset}
 Our data comes from two sources: ETOPO1 and Sentinel-1 radar satellite imagery. ETOPO1 provides topographical ice and bedrock elevation measurements which are used to calculate the thickness of the ice, and then generate gravitational potential energies (GPE) across the entire ice sheet \cite{information_ncei_etopo1_nodate}. Roughly 1800 Sentinel 1 scenes were used and InSAR feature tracking techniques were applied to derive surface horizontal velocity information of the ice \cite{nagler_sentinel-1_2015}. Both global-level datasets were parsed using the geopandas library to focus on the GrIs from 2016-2017. 
 
+Our data vector is also a model too, as it involves the velocity field of the InSAR associated with our GPE model, which predicts very high as the GPE values are four orders higher than the InSAR values.
+
+Our d vector is almost a negative GPE value, which is why our linear regression coefficents are so high.
+
 \subsubsection{Inversion Set Up}
+
+We are modelling the discrepancies between the velocities calculated by the GPE method and the ground values. Our paper is trying to bridge the gap between the two values.
+
+
 This data is the foundation for our geophysical equation:
 
 $$
@@ -106,7 +114,7 @@ $$
 
 $\vec{d}$ is our velocity field representing the difference between the InSAR velocities and the GPE velocities. $\overline{\overline{G}}$ is our basis functions representing the vircous thing-sheet responses casued by body-forces on the ice sheet. $m$ is our linear inversion model. Our goal to find best linear combination $\overline{\overline{G}} m$ that predicts $\vec{d}$. After achieving a proper fit, the model coefficients would be able to provide valuable insight to the distributions of basal tractions, and could also be translated to view the strain rates across the GrIs.
 
-To create our design matrix, we partitioned Greenland into 1000 grid cells (each with size 2° x 2°) and generated 3 basis functions ($\varepsilon_{xx}$ - Horizontal East and West effective body forces, $\varepsilon_{yy}$ - Horizontal North and South effective body-forces, and $\varepsilon_{xy}$ - Shear effective body-forces) for each cell. Our original experiments used 40 grid cells (each 10° x 10°), and we noticed considerable performance improvements increasing the resolution of our G matrix. Depending on computational computing power available, further reducing the grid cell size is an avenue for further optimizing the fit of the BLANK linear combination.   
+To create our design matrix, $\overline{\overline{G}}$ we partitioned Greenland into 1000 grid cells (each with size 2° x 2°) and generated 3 basis functions ($\varepsilon_{xx}$ - Horizontal East and West effective body forces, $\varepsilon_{yy}$ - Horizontal North and South effective body-forces, and $\varepsilon_{xy}$ - Shear effective body-forces) for each cell. Our original experiments used 40 grid cells (each 10° x 10°), and we noticed considerable performance improvements increasing the resolution of our G matrix. Depending on computational computing power available, further reducing the grid cell size is an avenue for further optimizing the fit of the BLANK linear combination.   
 
 \subsubsection{Model}
 
