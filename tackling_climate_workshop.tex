@@ -28,6 +28,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{gensymb}
+\usepackage{subfigure}
 
 \title{An Inversion Algorithm of Ice Thickness and InSAR Data for
 the State of Friction at the Base of the Greenland Ice Sheet}
@@ -124,22 +125,47 @@ This is a linear inversion task, where the effective body-forces in one grid cel
 %     \includegraphics[\columnwidth]{figures/trade-off-curves.pdf}
 % \end{figure}
 
-\begin{table}
-  \caption{Sample table title}
-  \label{sample-table}
-  \centering
-  \begin{tabular}{lll}
-    \toprule
-    \multicolumn{2}{c}{Part}                   \\
-    \cmidrule(r){1-2}
-    Name     & Description     & Size ($\mu$m) \\
-    \midrule
-    Dendrite & Input terminal  & $\sim$100     \\
-    Axon     & Output terminal & $\sim$10      \\
-    Soma     & Cell body       & up to $10^6$  \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
+     \caption{Interpolation for Data 1}\label{Fig:Data1}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/Ridge_Trade_Off_USING.png}
+     \caption{Interpolation for Data 2}\label{Fig:Data2}
+   \end{minipage}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}} 
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{figures/Ridge_Trade_Off_USING.png}} 
+    \subfigure[width=0.47\textwidth]{
+    \begin{table}
+      \caption{Sample table title}
+      \label{sample-table}
+      \centering
+      \begin{tabular}{lll}
+        \toprule
+        \multicolumn{2}{c}{Part}                   \\
+        \cmidrule(r){1-2}
+        Name     & Description     & Size ($\mu$m) \\
+        \midrule
+        Dendrite & Input terminal  & $\sim$100     \\
+        Axon     & Output terminal & $\sim$10      \\
+        Soma     & Cell body       & up to $10^6$  \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+    } 
+    \caption{(a) blah (b) blah (c) blah (d) blah}
+    \label{fig:foobar}
+\end{figure}
+
+
+
 
 \section{Results}
 
