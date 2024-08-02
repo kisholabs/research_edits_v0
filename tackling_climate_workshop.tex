@@ -118,17 +118,20 @@ $\vec{d}$ is our velocity field representing the difference between the InSAR an
 This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO, with loss functions defined as $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{1}$ and $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{2}^{2}$ respectively. We used the trade-off (L-curve) criterion to determine our optimal smoothing parameter, shown in Figure \ref{Fig:Data1c} along with its performance metrics.
 
 \begin{figure}[!htb]
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.3\textwidth}
      \centering
      \includegraphics[width=.9\linewidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
-     \caption{(a)}\label{Fig:Data1a}
+    %  \caption{Ridge Trade Off Curve}\label{Fig:Data1a}
+     \subfloat[1a]
    \end{minipage}\hfill
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.3\textwidth}
      \centering
      \includegraphics[width=.9\linewidth]{figures/Ridge_Trade_Off_USING.png}
-     \caption{(b)}\label{Fig:Data1b}
+     \subfloat[1b]
+    %  \caption{LASSO Trade Off Curve}\label{Fig:Data1b}
    \end{minipage}
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.3\textwidth}
+    \centering
      \begin{tabular}{l|l|l}
         \textbf{Metric} & \textbf{Ridge} & \textbf{LASSO} \\
         \hline
@@ -137,7 +140,8 @@ This is a linear inversion task, where the effective body-forces in one grid cel
         RMSE & \textbf{6.3651} & 27.6796 \\
         MAE & \textbf{4.3038} & 24.3230 \\
     \end{tabular}
-    \caption{(c)}\label{Fig:Data1c}
+    \subfloat[1c]
+    % \caption{Smoothing Params + Performance Metrics}\label{Fig:Data1c}
   \end{minipage}
 \end{figure}
 
