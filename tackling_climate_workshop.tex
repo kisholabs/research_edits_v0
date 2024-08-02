@@ -119,7 +119,7 @@ To create our design matrix, $\overline{\overline{G}}$ we partitioned the GrIs i
 
 \subsubsection{Model}
 
-This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO, with loss functions defined as BLANK and BLANK respectively. We used the trade-off (L-curve) criterion to determine our optimal smoothing parameter, shown in Figure BLANK along with its performance metrics.
+This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO, with loss functions defined as BLANK and BLANK respectively. We used the trade-off (L-curve) criterion to determine our optimal smoothing parameter, shown in Figure \ref{Fig:Data1c} along with its performance metrics.
 
 % \begin{figure}
 %     \includegraphics[\columnwidth]{figures/trade-off-curves.pdf}
@@ -129,12 +129,12 @@ This is a linear inversion task, where the effective body-forces in one grid cel
    \begin{minipage}{0.33\textwidth}
      \centering
      \includegraphics[width=.9\linewidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
-     \caption{Interpolation for Data 1}\label{Fig:Data1}
+     \caption{(a)}
    \end{minipage}\hfill
    \begin{minipage}{0.33\textwidth}
      \centering
      \includegraphics[width=.9\linewidth]{figures/Ridge_Trade_Off_USING.png}
-     \caption{Interpolation for Data 2}\label{Fig:Data2}
+     \caption{(b)}
    \end{minipage}
    \begin{minipage}{0.33\textwidth}
      \begin{tabular}{lll}
@@ -145,7 +145,7 @@ This is a linear inversion task, where the effective body-forces in one grid cel
         \textbf{4} & 0.007080 & 0.184871 \\
         \textbf{5} & 0.006369 & 0.220926 \\
     \end{tabular}
-    \caption{Interpolation for Data 3}\label{Fig:Data3}
+    \caption{(c)}
   \end{minipage}
 \end{figure}
 
@@ -186,24 +186,20 @@ Both the Ridge and LASSO regression models achieved a near identical fit to the 
    \begin{minipage}{0.48\textwidth}
      \centering
      \includegraphics[width=.7\linewidth]{Ridge_pred_REAL.pdf}
-     \caption{Interpolation for Data 1}\label{Fig:Data1}
+     \caption{Ridge Model Velocity Predictions}\label{Fig:Data1}
    \end{minipage}\hfill
    \begin{minipage}{0.48\textwidth}
      \centering
-     \includegraphics[width=.7\linewidth]{LASSO_inversion_REAL.pdf}
-     \caption{Interpolation for Data 2}\label{Fig:Data2}
+     \includegraphics[width=.7\linewidth]{figures/greenland_traction_Ridge_0.15199.pdf}
+     \caption{Ridge Basal Traction Predictions}\label{Fig:Data2}
    \end{minipage}
 \end{figure}
 
 \section{Conclusion and Future Work}
 
 In this work, we developed an inversion algorithm for quantifying forces and magnitudes of basal tractions of the Greenland Ice Sheet. This is achieved via a hybrid model, with a linear regression based inversion model that integrates real-world InSAR data, and a physics-based algorithm to predict strain rates from calculated ice velocity fields. This work has large implications on the ability to individually separate basal traction from GPE, and serves as a step towards modeling ice flux in relation to friction, normal forces, and other nonlinear forces. In the future, we hope to use this work to create models relating ice flux in relation to friction, normal forces and nonlinear forces, which would help us relate velocities with ice loss of the GrIs, helping us closely monitor rising sea levels of the GrIs and beyond.
-
-
-We are currently looking for more data spanning more time or also for the Antarctic Ice Sheet.
-
-REMEMBER TO CTRL F FOR BLANK AT THE END
-
+%We are currently looking for more data spanning more time or also for the Antarctic Ice Sheet.%
+%REMEMBER TO CTRL F FOR BLANK AT THE END%
 \bibliography{references}
 \bibliographystyle{ieee_fullname}
 
