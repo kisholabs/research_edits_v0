@@ -114,9 +114,7 @@ To create our G matrix, we partitioned Greenland into 1000 grid cells (each with
 This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO. Our Loss Function is defined as [INSERT LOSS HERE], with our alpha value range defined as [alpha]. We used the trade-off (L-curve) criterion and the 10-fold generalized cross validation techniques to determine our optimal smoothing parameter. 
 
 \begin{figure}
-    \centering
-    \includegraphics[scale=0.225]{figures/Ridge_Trade_Off_USING.png}
-    \includegraphics[scale=0.225]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
+    \includegraphics[width=0.8 * \columnwidth]{figures/trade-off-curves.pdf}
 \end{figure}
 
 \begin{table}
