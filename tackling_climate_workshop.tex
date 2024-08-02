@@ -121,7 +121,7 @@ $\vec{d}$ is our velocity field representing the difference between the InSAR an
 
 \subsubsection{Model}
 
-This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression, shown to perform well in inversion tasks, and  \cite{lines_review_1984}. To further generalize and optimize the fit of our model, we also employed Ridge (Tikhonov) and LASSO regularization methods, with loss functions defined as $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{1}$ and $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{2}^{2}$ respectively \cite{marquardt_ridge_1975, tibshirani_regression_2011}. We used the trade-off (L-curve) criterion to determine our optimal smoothing parameter, shown in Figure \ref{Fig:Data1c} along with its performance metrics.
+This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use the least squares regression method, shown to perform well in inversion tasks, and also employed Ridge (Tikhonov) and LASSO regularization with loss functions defined as $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{1}$ and $|| \overline{\overline{G}} m-\vec{d}\left\|_{2}+a^{2}\right\| m \|_{2}^{2}$ respectively \cite{lines_review_1984, marquardt_ridge_1975, tibshirani_regression_2011}. Trade-off (L-curve) criterion determined our optimal smoothing parameter, shown in Figure \ref{Fig:Data1c} with model performance metrics.
 
 \begin{figure}[!htb]
    \begin{minipage}{0.33\textwidth}
@@ -147,7 +147,7 @@ This is a linear inversion task, where the effective body-forces in one grid cel
         MAE & \textbf{4.3038} & 24.3230 \\
     \end{tabular}
     % \subfloat[1c]
-    \caption{Smoothing params and performance metrics}\label{Fig:Data1c}
+    \caption{Optimal parameter and model performance}\label{Fig:Data1c}
   \end{minipage}
 \end{figure}
 
@@ -158,14 +158,14 @@ Both the Ridge and LASSO regression models achieved a near identical fit to the 
 %6 lines long
 
 \begin{figure}[!htb]
-   \begin{minipage}{0.48\textwidth}
+   \begin{minipage}{0.45\textwidth}
      \centering
-     \includegraphics[width=.7\linewidth]{Ridge_pred_REAL.pdf}
+     \includegraphics[width=.71\linewidth]{Ridge_pred_REAL.pdf}
      \caption{Ridge Model Velocity Predictions}\label{Fig:Data4}
    \end{minipage}\hfill
-   \begin{minipage}{0.48\textwidth}
+   \begin{minipage}{0.45\textwidth}
      \centering
-     \includegraphics[width=.7\linewidth]{figures/greenland_traction_Ridge_0.15199.pdf}
+     \includegraphics[width=.71\linewidth]{figures/greenland_traction_Ridge_0.15199.pdf}
      \caption{Ridge Model Basal Traction Predictions}\label{Fig:Data5}
    \end{minipage}
 \end{figure}
