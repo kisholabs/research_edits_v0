@@ -97,7 +97,9 @@ Our approach uses a hybrid model: our ground truth velocity data is used to trai
 \section{Methods}
 
 \subsubsection{Dataset}
-Our dataset is sourced from two sources: ETOPO1 for topographical ice sheet measurements and Sentinel-1 InSAR data for velocity fields. Both global-level datasets were parsed using the geopandas library such that all points were on the Greenland Ice Sheet. The topographical measurements of Greenland’s ice and bedrock elevations are used to calculate the thickness of the ice, which is then used to generate gravitational potential energies (GPE) across the entire ice sheet. This data feeds into our geophysical equation:
+Our data comes from two sources: ETOPO1 and Sentinel-1 radar satellite imagery. ETOPO1 provides topographical ice and bedrock elevation measurements that enable our GPE calculations. Sentinel-1 InSAR data provides surface horizontal velocity information. 
+
+for topographical ice sheet measurements and Sentinel-1 InSAR data for velocity fields. Both global-level datasets were parsed using the geopandas library such that all points were on the Greenland Ice Sheet. The topographical measurements of Greenland’s ice and bedrock elevations are used to calculate the thickness of the ice, which is then used to generate gravitational potential energies (GPE) across the entire ice sheet. This data feeds into our geophysical equation:
 
 that utilized ~1800 scences of Sentinel 1 SAR imagery and inSAR feature tracking techniques to produce
 
