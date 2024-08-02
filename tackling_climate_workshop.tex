@@ -119,7 +119,7 @@ To create our design matrix, $\overline{\overline{G}}$ we partitioned the GrIs i
 
 \subsubsection{Model}
 
-This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO. Our Loss Function is defined as [INSERT LOSS HERE], with our alpha value range defined as [alpha]. We used the trade-off (L-curve) criterion and the 10-fold generalized cross validation techniques to determine our optimal smoothing parameter. 
+This is a linear inversion task, where the effective body-forces in one grid cell can have effects on its surrounding cells and beyond. Thus, it requires a regression model. We use Least Squares Regression from the sklearn library, which has shown to perform well in inversion tasks \cite{lines_review_1984}. To further generalize and optimize the overall fit of our model, we also employed regularization methods Ridge and LASSO, with loss functions defined as BLANK and BLANK respectively. We used the trade-off (L-curve) criterion to determine our optimal smoothing parameter, shown in Figure BLANK along with its performance metrics.
 
 % \begin{figure}
 %     \includegraphics[\columnwidth]{figures/trade-off-curves.pdf}
@@ -128,12 +128,12 @@ This is a linear inversion task, where the effective body-forces in one grid cel
 \begin{figure}[!htb]
    \begin{minipage}{0.33\textwidth}
      \centering
-     \includegraphics[width=.8\linewidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
+     \includegraphics[width=.9\linewidth]{figures/LASSO_Trade_Off_100_Zoomed_In_USING.png}
      \caption{Interpolation for Data 1}\label{Fig:Data1}
    \end{minipage}\hfill
    \begin{minipage}{0.33\textwidth}
      \centering
-     \includegraphics[width=.8\linewidth]{figures/Ridge_Trade_Off_USING.png}
+     \includegraphics[width=.9\linewidth]{figures/Ridge_Trade_Off_USING.png}
      \caption{Interpolation for Data 2}\label{Fig:Data2}
    \end{minipage}
    \begin{minipage}{0.33\textwidth}
