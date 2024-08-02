@@ -115,7 +115,7 @@ $$
 \vec{d}=\overline{\overline{G}} m=v_{\text {InSAR}}-v_{GPE}
 $$
 
-$\vec{d}$ is our velocity field representing the difference between the InSAR and GPE velocities. To create our design matrix, $\overline{\overline{G}}$ we partitioned the GrIS into 1000 grid cells (each with size 2° x 2°) and generated 3 basis functions ($\varepsilon_{xx}$ - Horizontal East and West effective body forces, $\varepsilon_{yy}$ - Horizontal North and South effective body-forces, and $\varepsilon_{xy}$ - Shear effective body-forces) representing the ice's viscous thin-sheet responses for each cell. $m$ is our linear inversion model. Our goal to find best linear combination $\overline{\overline{G}} m$ that predicts $\vec{d}$.
+$\vec{d}$ is our velocity field representing the difference between the InSAR and GPE velocities. To create our design matrix, $\overline{\overline{G}}$, we partitioned the GrIS into 1000 grid cells (each with size 2° x 2°) and generated 3 basis functions ($\varepsilon_{xx}$ - Horizontal East and West effective body forces, $\varepsilon_{yy}$ - Horizontal North and South effective body-forces, and $\varepsilon_{xy}$ - Shear effective body-forces) representing the ice's viscous thin-sheet responses for each cell. $m$ is our linear-regression inversion model. Our goal to find best linear combination $\overline{\overline{G}} m$ that predicts $\vec{d}$.
 
 %Our original experiments used 40 grid cells (each 10° x 10°), and we noticed considerable performance improvements increasing the resolution of our G matrix.%
 
@@ -153,7 +153,7 @@ This is a linear inversion task, where the effective body-forces in one grid cel
 
 \section{Results}
 
-Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.985 respectively. The Ridge model predictions (green vectors) have been plotted against the ground truth velocity field (red vectors) in Figure \ref{Fig:Data4}, highlighting the accuracy of the predictions. Given the unusually high $R^{2}$ score, we are planning on testing this model on larger datasets to verify this accuracy. We can now take the model's coefficients and convert our strain rate basis functions from $\overline{\overline{G}}$ to basal tractions through the method described in Finzel et al. \cite{finzel_surface_2015}. The Ridge basal traction predictions are plotted in Figure \ref{Fig:Data5}, and indicate that the basal tractions responsible for holding the GrIS together mostly lie on the coastline of the ice sheet.
+Both the Ridge and LASSO regression models achieved a near identical fit to the velocity field, achieving $R^{2}$ values of 0.999 and 0.985 respectively. The Ridge model predictions (green vectors) have been plotted against the ground truth velocity field (red vectors) in Figure \ref{Fig:Data4}, highlighting the accuracy of the predictions. Given the unusually high $R^{2}$ score, we are planning on testing this model on larger datasets to verify this accuracy. We can now take the model's coefficients and convert our strain rate basis functions from $\overline{\overline{G}}$ to basal tractions through the geophysical algorithm described in Finzel et al. \cite{finzel_surface_2015}. The Ridge basal traction predictions are plotted in Figure \ref{Fig:Data5}, and indicate that the largest basal tractions responsible for holding the GrIS together lie on the coastline of the ice sheet.
 
 %6 lines long
 
@@ -172,7 +172,7 @@ Both the Ridge and LASSO regression models achieved a near identical fit to the 
 
 \section{Conclusion and Future Work}
 
-In this work, we developed an inversion algorithm for quantifying the magnitudes and distributions of basal tractions of the Greenland Ice Sheet. This is achieved via a hybrid model, with a linear regression based inversion model that integrates real-world Ice Thickness and InSAR data, and uses a physics-based model to predict basal tractions. This work has large implications on the ability to quantify basal tractions and understand the magnitudes and distributions of the forces keeping the GrIS together, and serves as a step towards modeling ice flux in relation to velocities, friction, and other nonlinear forces. In the future, we hope to explore the application of deep learning to improve the fit of this model, and use this work to closely monitor rising sea levels of the GrIS and beyond.
+In this work, we developed an inversion algorithm for quantifying the magnitudes and distributions of basal tractions of the Greenland Ice Sheet. This is achieved via a hybrid model composed of a linear regression based inversion algorithm that integrates real-world ice thickness and InSAR data, and uses a physics-based model to predict basal tractions. This work has large implications on the ability to quantify basal tractions and understand the magnitudes and distributions of the forces keeping the GrIS together, and serves as a step towards modeling ice flux in relation to velocities, friction, and other nonlinear forces. In the future, we hope to explore the application of deep learning to improve the fit of this model, and use this work to closely monitor rising sea levels of the GrIS and beyond.
 
 %We are currently looking for more data spanning more time or also for the Antarctic Ice Sheet.%
 %REMEMBER TO CTRL F FOR BLANK AT THE END%
